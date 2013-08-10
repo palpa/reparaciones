@@ -22,6 +22,6 @@ public class HelloController {
 
         logger.info("Entre al controlador");
 
-        return new ModelAndView("hello.jsp");
+        return new ModelAndView("hello");
     }
 }
