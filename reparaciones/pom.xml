@@ -35,11 +35,17 @@
     	<artifactId>jstl</artifactId>
     	<version>1.2</version>
     </dependency>
+    <dependency>
+		 <groupId>org.sitemesh</groupId>
+		 <artifactId>sitemesh</artifactId>
+		 <version>${sitemesh.version}</version>
+	</dependency>
   </dependencies>
   <build>
     <finalName>reparaciones</finalName>
   </build>
   <properties>
   	<org.springframework.version>3.2.3.RELEASE</org.springframework.version>
+  	<sitemesh.version>3.0-alpha-2</sitemesh.version>
   </properties>
 </project>
