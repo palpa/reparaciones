@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <sitemesh>
-	<mapping path="/*" decorator="/WEB-INF/decorators/defaultDecorator.html" />
+
+	<mapping decorator="/WEB-INF/decorators/defaultBootstrapDecorator.html"/>
+
+	<mapping>
+		<path>/*</path>
+		<decorator>/WEB-INF/decorators/reparacionesDecorator.html</decorator>
+		<decorator>/WEB-INF/decorators/defaultBootstrapDecorator.html</decorator>
+	</mapping>
+
 </sitemesh>
