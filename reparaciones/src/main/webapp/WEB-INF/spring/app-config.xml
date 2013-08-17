@@ -25,4 +25,7 @@
 		<property name="suffix" value=".jsp"></property>
 	</bean>
 
+	<bean id="ClientServiceBean" class="com.amp.service.ClientService">
+	</bean>
+	
 </beans>

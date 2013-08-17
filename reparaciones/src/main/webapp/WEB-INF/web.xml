@@ -19,7 +19,7 @@
 
 	<servlet-mapping>
 		<servlet-name>reparaciones</servlet-name>
-		<url-pattern>*.htm</url-pattern>
+		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
 	<!--Sitemesh: Decorates pages with layouts -->
