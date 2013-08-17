@@ -2,12 +2,12 @@
 
 <sitemesh>
 
-	<mapping decorator="/WEB-INF/decorators/defaultBootstrapDecorator.html"/>
+	<mapping decorator="/WEB-INF/decorators/defaultBootstrapDecorator.jsp"/>
 
 	<mapping>
 		<path>/*</path>
-		<decorator>/WEB-INF/decorators/reparacionesDecorator.html</decorator>
-		<decorator>/WEB-INF/decorators/defaultBootstrapDecorator.html</decorator>
+		<decorator>/WEB-INF/decorators/reparacionesDecorator.jsp</decorator>
+		<decorator>/WEB-INF/decorators/defaultBootstrapDecorator.jsp</decorator>
 	</mapping>
 
 </sitemesh>
