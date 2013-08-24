@@ -17,6 +17,12 @@ public class ClientServiceImpl implements ClientService {
 
 	}
 
+	@Override
+	public List<Client> getClients() {
+		return clients;
+	}
+
+	@Override
 	public Client getClientById(int id) {
 		return clients.get(id - 1);
 	}

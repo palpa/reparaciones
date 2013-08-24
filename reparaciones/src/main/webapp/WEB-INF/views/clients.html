@@ -23,8 +23,26 @@
 			</div>
 		</div>
 	</div>
-	<p>Hello {{name}}</p>
-	<p>{{> partial}}</p>
+
+  <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Nombre</th>
+            </tr>
+          </thead>
+          <tbody>
+          	{{#clients}}
+            <tr>
+              <td>{{id}}</td>
+              <td>{{name}}</td>
+            </tr>
+            {{/clients}}
+          </tbody>
+        </table>
+      </div><!-- /.table-responsive -->
+      
 	
 	{{#items}}
 	Name: {{name}}<br>
