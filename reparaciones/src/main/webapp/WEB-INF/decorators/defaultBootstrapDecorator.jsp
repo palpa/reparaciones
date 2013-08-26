@@ -6,6 +6,13 @@
 <!-- Bootstrap -->
 <link href="resources/css/bootstrap.min.css" rel="stylesheet"
 	media="screen">
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+	<script src="resources/js/html5shiv.js"></script>
+	<script src="resources/js/respond.min.js"></script>
+<![endif]-->
+		
 <sitemesh:write property='head' />
 </head>
 <body>
@@ -16,8 +23,5 @@
 	<script src="resources/js/jquery-1.10.2.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="resources/js/bootstrap.min.js"></script>
-
-	<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
-	<script src="resources/js/respond.min.js"></script>
 </body>
 </html>
