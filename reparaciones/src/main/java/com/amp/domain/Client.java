@@ -3,13 +3,18 @@ package com.amp.domain;
 public class Client {
 	private int id;
 	private String name;
+	
+	public Client() {
+		this.id = -1;
+		this.name = "";
+	}
 
 	public Client(int id, String name) {
 		this.id = id;
 		this.name = name;
 	}
 
-	public long getId() {
+	public int getId() {
 		return id;
 	}
 

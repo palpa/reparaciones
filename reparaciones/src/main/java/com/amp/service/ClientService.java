@@ -9,5 +9,7 @@ public interface ClientService {
 	public List<Client> getClients();
 
 	public Client getClientById(int id);
+	
+	public void addClient(Client client);
 
 }

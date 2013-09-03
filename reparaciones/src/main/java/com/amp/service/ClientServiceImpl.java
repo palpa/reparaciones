@@ -26,5 +26,12 @@ public class ClientServiceImpl implements ClientService {
 	public Client getClientById(int id) {
 		return clients.get(id - 1);
 	}
+	
+	@Override
+	public void addClient(Client client) {
+		int id = clients.get(clients.size() - 1).getId() + 1;
+		client.setId(id); 
+		clients.add(client);
+	}
 
 }
