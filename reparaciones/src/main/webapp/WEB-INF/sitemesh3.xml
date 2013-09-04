@@ -5,6 +5,13 @@
 	<mapping decorator="/WEB-INF/decorators/defaultBootstrapDecorator.jsp"/>
 
 	<mapping>
+		<path>/clients/*</path>
+		<decorator>/WEB-INF/decorators/clientsDecorator.jsp</decorator>
+		<decorator>/WEB-INF/decorators/reparacionesDecorator.jsp</decorator>
+		<decorator>/WEB-INF/decorators/defaultBootstrapDecorator.jsp</decorator>
+	</mapping>
+	
+	<mapping>
 		<path>/*</path>
 		<decorator>/WEB-INF/decorators/reparacionesDecorator.jsp</decorator>
 		<decorator>/WEB-INF/decorators/defaultBootstrapDecorator.jsp</decorator>

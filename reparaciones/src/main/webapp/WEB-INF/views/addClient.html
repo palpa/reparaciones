@@ -3,14 +3,26 @@
 <title>Clientes</title>
 </head>
 <body>
-	<h2>Nuevo Cliente</h2>
-	<form role="form" method="post">
-		<div class="form-group">
-			<label for="clientName">Nombre</label> 
-			<input type="text" class="form-control" id="clientName" name="name"
-				placeholder="Ingrese un nombre">
+	<div class="row">
+		<div class="col-md-4 col-md-offset-4">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title">Nuevo Cliente</h3>
+				</div>
+				<div class="panel-body">
+					<form role="form" method="post">
+						<div class="form-group">
+							<label for="clientName">Nombre</label>
+							<input type="text" class="form-control" id="clientName"
+								name="name" placeholder="Ingrese un nombre">
+						</div>
+						<button type="submit" class="btn btn-default">Submit</button>
+					</form>
+				</div>
+			</div>
 		</div>
-		<button type="submit" class="btn btn-default">Submit</button>
-	</form>
+	</div>
+
+
 </body>
 </html>

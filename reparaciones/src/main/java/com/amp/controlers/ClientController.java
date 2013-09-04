@@ -26,7 +26,7 @@ public class ClientController {
 		this.clientService = clientService;
 	}
 
-	@RequestMapping("clients")
+	@RequestMapping("clients/")
 	public String loadClientsPage(Model m) {
 
 		m.addAttribute("clients", clientService.getClients());
