@@ -17,17 +17,14 @@ public class ClientServiceImpl implements ClientService {
 
 	}
 
-	@Override
 	public List<Client> getClients() {
 		return clients;
 	}
 
-	@Override
 	public Client getClientById(int id) {
 		return clients.get(id - 1);
 	}
 	
-	@Override
 	public void addClient(Client client) {
 		int id = clients.get(clients.size() - 1).getId() + 1;
 		client.setId(id); 
