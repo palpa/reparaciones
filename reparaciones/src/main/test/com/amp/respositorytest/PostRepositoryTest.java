@@ -17,7 +17,7 @@ import com.apm.entities.Post;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations="classpath:META-INF/application-persistence.xml")
+@ContextConfiguration(locations="file:src/main/webapp/WEB-INF/spring/app-config.xml")
 public class PostRepositoryTest {
 
 	@Autowired
