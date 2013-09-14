@@ -1,0 +1,16 @@
+#footer {
+    width:100%;
+    position:absolute;
+    bottom:0;
+}
+.padding-top {
+	padding-top:25px;	
+}
+
+.padding-top20 {
+	padding-top:20px;
+}
+
+.padding-top25 {
+	padding-top:25px;
+}

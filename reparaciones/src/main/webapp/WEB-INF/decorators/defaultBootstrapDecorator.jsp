@@ -21,6 +21,7 @@
 
 	<!-- JavaScript plugins (requires jQuery) -->
 	<script src="/reparaciones/resources/js/jquery-1.10.2.min.js"></script>
+	<script src="/reparaciones/resources/js/custom.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="/reparaciones/resources/js/bootstrap.min.js"></script>
 </body>

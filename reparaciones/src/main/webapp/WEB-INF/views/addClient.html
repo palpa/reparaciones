@@ -3,26 +3,35 @@
 <title>Clientes</title>
 </head>
 <body>
-	<div class="row">
+	<div class="row padding-top">
 		<div class="col-md-4 col-md-offset-4">
-			<div class="panel panel-primary">
+			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h3 class="panel-title">Nuevo Cliente</h3>
+					<h3 class="panel-title">Alta de cliente</h3>
 				</div>
 				<div class="panel-body">
-					<form role="form" method="post">
+					<form id="addCliente" role="form" method="post">
 						<div class="form-group">
 							<label for="clientName">Nombre</label>
-							<input type="text" class="form-control" id="clientName"
-								name="name" placeholder="Ingrese un nombre">
+							<input type="text" class="form-control" id="clientName" name="name" placeholder="Ingrese un nombre">
+							
+							<label for="clientName" class="padding-top20">Apellido</label>
+							<input type="text" class="form-control " id="clientName" name="name" placeholder="Ingrese un nombre" pattern= "[0-9] {3}"  title= "Ingrese solo letras.">
+							
+							<label for="clientName" class="padding-top20">Dirección</label>
+							<input type="text" class="form-control " id="clientName" name="name" placeholder="Ingrese un nombre">
+							
+							<label for="clientName" class="padding-top20">Teléfono</label>
+							<input type="text" class="form-control " id="clientName" name="name" placeholder="Ingrese un nombre" pattern= "[0-9] {3}"  title= "Three digit area code.">						
+								
 						</div>
-						<button type="submit" class="btn btn-default">Submit</button>
+						<button type="submit" class="btn btn-default">Crear</button>
 					</form>
 				</div>
 			</div>
 		</div>
 	</div>
-
+	</div>
 
 </body>
 </html>
