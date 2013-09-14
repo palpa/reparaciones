@@ -4,16 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
+import org.springframework.stereotype.Service;
 
 import com.amp.domain.Client;
 import com.amp.repository.PostRepository;
 import com.apm.entities.Post;
 
+@Service("clientService")
 public class ClientServiceImpl implements ClientService {
 
 	List<Client> clients;
-	
+
 	@Autowired
 	PostRepository repostitory;
 
@@ -32,24 +33,24 @@ public class ClientServiceImpl implements ClientService {
 	public Client getClientById(int id) {
 		return clients.get(id - 1);
 	}
-	
+
 	public void addClient(Client client) {
 		int id = clients.get(clients.size() - 1).getId() + 1;
-		client.setId(id); 
+		client.setId(id);
 		clients.add(client);
 	}
-	
-	public void pruebaJpa(){
-		
+
+	public void pruebaJpa() {
+
 		Post miPost = new Post();
 		miPost.setTitle("Un Titulo");
-		
+
 		repostitory.save(miPost);
-		
+
 		Post postDB = repostitory.findOne(miPost.getPostId());
-		
-		System.out.println("XXXXX - XXXXX El ID es" + postDB.getTitle() );
-		
+
+		System.out.println("XXXXX - XXXXX El ID es" + postDB.getTitle());
+
 	}
 
 }
