@@ -7,18 +7,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.amp.domain.Client;
-import com.amp.repository.PostRepository;
+import com.amp.repository.ClientRepository;
 import com.apm.entities.Post;
 
 @Service("clientService")
 public class ClientServiceImpl implements ClientService {
 
 	List<Client> clients;
-
+	
 	@Autowired
-	PostRepository repostitory;
+	private ClientRepository clientRepostitory;
 
-	public ClientServiceImpl() {
+	public ClientServiceImpl(ClientRepository clientRepostitory) {
+		this.clientRepostitory = clientRepostitory;
+		
 		clients = new ArrayList<Client>();
 
 		clients.add(new Client(1, "Maxi"));
@@ -42,14 +44,14 @@ public class ClientServiceImpl implements ClientService {
 
 	public void pruebaJpa() {
 
-		Post miPost = new Post();
+		/*Post miPost = new Post();
 		miPost.setTitle("Un Titulo");
 
-		repostitory.save(miPost);
+		clientRepostitory.save(miPost);
 
-		Post postDB = repostitory.findOne(miPost.getPostId());
+		Post postDB = clientRepostitory.findOne(miPost.getPostId());
 
-		System.out.println("XXXXX - XXXXX El ID es" + postDB.getTitle());
+		System.out.println("XXXXX - XXXXX El ID es" + postDB.getTitle());*/
 
 	}
 
