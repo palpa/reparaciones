@@ -11,7 +11,5 @@ public interface ClientService {
 	public Client getClientById(int id);
 	
 	public void addClient(Client client);
-	
-	public void pruebaJpa();
 
 }

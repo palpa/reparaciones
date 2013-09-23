@@ -71,8 +71,6 @@ public class ClientController {
 		
 		clientService.addClient(client);
 		
-		clientService.pruebaJpa();
-		
 		m.addAttribute("client", new Client());
 		
 		return "addClient";

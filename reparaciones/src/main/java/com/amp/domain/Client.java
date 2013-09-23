@@ -1,7 +1,22 @@
 package com.amp.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="CLIENT")
 public class Client {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="CLIENT_ID")
 	private int id;
+	
+	@Column(name="NAME")
 	private String name;
 	
 	public Client() {
