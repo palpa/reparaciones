@@ -1,4 +1,4 @@
-package com.amp.respositorytest;
+package com.amp.repository;
 
 import static org.junit.Assert.*;
 
