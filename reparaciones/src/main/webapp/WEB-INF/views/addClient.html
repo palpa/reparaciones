@@ -3,35 +3,84 @@
 <title>Clientes</title>
 </head>
 <body>
-	<div class="row padding-top">
-		<div class="col-md-4 col-md-offset-4">
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h3 class="panel-title">Alta de cliente</h3>
-				</div>
-				<div class="panel-body">
-					<form id="addCliente" role="form" method="post">
-						<div class="form-group">
-							<label for="clientName">Nombre</label>
-							<input type="text" class="form-control" id="clientName" name="name" placeholder="Ingrese un nombre">
-							
-							<label for="clientName" class="padding-top20">Apellido</label>
-							<input type="text" class="form-control " id="clientName" name="name" placeholder="Ingrese un nombre" pattern= "[0-9] {3}"  title= "Ingrese solo letras.">
-							
-							<label for="clientName" class="padding-top20">Dirección</label>
-							<input type="text" class="form-control " id="clientName" name="name" placeholder="Ingrese un nombre">
-							
-							<label for="clientName" class="padding-top20">Teléfono</label>
-							<input type="text" class="form-control " id="clientName" name="name" placeholder="Ingrese un nombre" pattern= "[0-9] {3}"  title= "Three digit area code.">						
-								
-						</div>
-						<button type="submit" class="btn btn-default">Crear</button>
-					</form>
+	<div class="row">
+		<div class="row col-lg-4">
+			<div id="D_Menssage" class="col-lg-offset-4 col-lg-4"
+				style="display: none">
+				<p>Se dio de alta un nuevo cliente:</p>
+				<p>Nombre: pepito</p>
+			</div>
+		</div>
+
+		<div class="row padding-top col-lg-4 row padding-top">
+			<div class="col-md-12">
+
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title text-center">Alta de cliente</h3>
+					</div>
+					
+					<div class="panel-body">
+						<form id="addCliente" role="form" method="post">
+							<div id="D_Error">{{error}}</div>
+
+							<div id="D_Nombre" class="form-group">
+								<label for="addCliente">Nombre</label>
+								<input id="I_Nombre" type="text" class="form-control"
+									name="name" placeholder="Ingrese un nombre">
+							</div>
+
+							<div id="D_Apellido" class="form-group">
+								<label for="addCliente" class="padding-top10">Apellido</label>
+								<input id="I_Apellido" type="text" class="form-control"
+									name="surName" placeholder="Ingrese un apellido">
+							</div>
+
+							<div id="D_Direccion" class="form-group">
+								<label for="addCliente" class="padding-top10">Dirección</label>
+								<input id="I_Direccion" type="text" class="form-control"
+									name="adress" placeholder="Ingrese dirección">
+							</div>
+
+							<div id="D_DNI" class="form-group">
+								<label for="addCliente" class="padding-top10">DNI</label>
+								<input id="I_DNI" type="text" class="form-control" name="dni"
+									placeholder="Ingrese DNI">
+							</div>
+
+							<div class="row">
+								<div class="col-lg-6">
+									<div id="D_TelFijo" class="form-group">
+										<label for="addCliente" class="padding-top10">Teléfono</label>
+										<input id="I_TelFijo" type="text" class="form-control"
+											name="phone" placeholder="Ingrese teléfono fijo">
+									</div>
+								</div>
+
+								<div class="col-lg-6">
+									<div id="D_Celular" class="form-group">
+										<label for="addCliente" class="padding-top10">Celular</label>
+										<input id="I_Celular" type="text" class="form-control"
+											name="cel" placeholder="Ingrese eléfono celular">
+									</div>
+								</div>
+							</div>
+
+							<div id="D_Email" class="form-group">
+								<label for="addCliente" class="padding-top10">Email</label>
+								<input id="I_Email" type="text" class="form-control"
+									name="email" placeholder="Ingrese direccion de correo">
+							</div>
+
+							<div class="text-center">
+								<button class="btn btn-default">Crear</button>
+							</div>
+						</form>
+					</div>
+					
 				</div>
 			</div>
 		</div>
 	</div>
-	</div>
-
 </body>
 </html>

@@ -24,7 +24,9 @@ public class ClientRepositoryTest {
 	
 	@Before
 	public void setUp() {
-		client = new  Client(1, "Jose");
+		client = new  Client();
+		client.setId(1);
+		client.setName("Jose");
 		clientRepository.saveAndFlush(client);
 	}
 

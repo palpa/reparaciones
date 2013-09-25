@@ -1,4 +1,4 @@
-#footer {
+#footerr {
     width:100%;
     position:absolute;
     bottom:0;
@@ -13,4 +13,8 @@
 
 .padding-top25 {
 	padding-top:25px;
+}
+
+.rojo{
+	background-color: red;
 }

@@ -29,7 +29,9 @@ public class ClientServiceTest {
 
 	@Before
 	public void setup() {
-		Client client = new Client(1, "Jose");
+		Client client = new  Client();
+		client.setId(1);
+		client.setName("Jose");
 
 		Mockito.when(clientRepostitory.findOne(1)).thenReturn(client);
 	}
