@@ -1,6 +1,5 @@
 package com.amp.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,17 +13,8 @@ public class ClientServiceImpl implements ClientService {
 
 	// List<Client> clients;
 
-	private ClientRepository clientRepostitory;
-
 	@Autowired
-	public ClientServiceImpl(ClientRepository clientRepostitory) {
-		this.clientRepostitory = clientRepostitory;
-
-		// clients = new ArrayList<Client>();
-		// clients.add(new Client(1, "Maxi"));
-		// clients.add(new Client(2, "Jose"));
-
-	}
+	private ClientRepository clientRepostitory;
 
 	public List<Client> getClients() {
 		// return clients;
