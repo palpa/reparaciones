@@ -57,7 +57,7 @@
 			<version>1.9.5</version>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<!-- Dependendias de validacion -->
 		<dependency>
 			<groupId>javax.validation</groupId>
@@ -69,7 +69,7 @@
 			<artifactId>hibernate-validator</artifactId>
 			<version>5.0.1.Final</version>
 		</dependency>
-		
+
 		<!-- Dependencias de Persistencia -->
 		<dependency>
 			<groupId>org.springframework.data</groupId>
@@ -121,8 +121,22 @@
 	</dependencies>
 	<build>
 		<finalName>reparaciones</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.5.1</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+		</plugins>
 	</build>
 	<properties>
+		<java.version>7</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<org.springframework.version>3.2.3.RELEASE</org.springframework.version>
 		<sitemesh.version>3.0-alpha-2</sitemesh.version>
 		<slf4j.version>1.7.5</slf4j.version>
