@@ -13,11 +13,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import com.amp.commons.errors.ErrorsManager;
-import com.amp.domain.Client;
+
+import com.amp.commons.ErrorsManager;
+import com.amp.domain.ClientDTO;
 import com.amp.domain.User;
 import com.amp.service.ClientService;
 import com.amp.service.UserService;
+import com.apm.entities.Client;
 
 @Controller
 public class ClientController {
@@ -46,7 +48,6 @@ public class ClientController {
 
 		// Pruebo recuperarlo
 		User othetUser = userService.getUserByUserName(user.getName());
-		m.addAttribute("clients", clientService.getClients());
 
 		return "clients";
 	}
@@ -54,12 +55,12 @@ public class ClientController {
 	@RequestMapping(value = "clients/add", method = RequestMethod.GET)
 	public String addClientPage(Model m) {
 		m.addAttribute("error", "");
-		m.addAttribute("client", new Client());
+		//m.addAttribute("client", new Client());
 		return "addClient";
 	}
 
 	@RequestMapping(value = "clients/add", method = RequestMethod.POST)
-	public String addClientForm(@Valid @ModelAttribute Client client,
+	public String addClientForm(@Valid @ModelAttribute ClientDTO client,
 			BindingResult result, Model m) {
 
 		ErrorsManager errorManager = new ErrorsManager(result);
@@ -69,14 +70,14 @@ public class ClientController {
 			clientService.addClient(client);
 		}
 
-		m.addAttribute("client", client);
+		//m.addAttribute("client", client);
 
 		return "addClient";
 	}
 
 	@RequestMapping("api/client/{id}")
 	@ResponseBody
-	public Client getById(@PathVariable Integer id) {
+	public ClientDTO getById(@PathVariable Integer id) {
 		return clientService.getClientById(id);
 	}
 

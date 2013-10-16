@@ -1,15 +1,15 @@
 package com.amp.service;
 
-import java.util.List;
+import org.springframework.data.domain.PageRequest;
 
-import com.amp.domain.Client;
+import com.amp.commons.DomainClientPage;
+import com.amp.domain.ClientDTO;
 
 public interface ClientService {
 
-	public List<Client> getClients();
-
-	public Client getClientById(int id);
+	public ClientDTO getClientById(int id);
 	
-	public void addClient(Client client);
-
+	public void addClient(ClientDTO client);
+	
+	public DomainClientPage getPageClients(int numPage);
 }

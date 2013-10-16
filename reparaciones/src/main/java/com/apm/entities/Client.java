@@ -1,4 +1,4 @@
-package com.amp.domain;
+package com.apm.entities;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,45 +17,41 @@ public class Client {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	
-	@Size(min=1)
 	@Column(name="CLIENT_NAME")
 	private String name;
 	
-	@Size(min=1)
 	@Column(name="CLIENT_SURNAME")
 	private String surName;
-	
-	@Size(min=1)
+
 	@Column(name="CLIENT_ADRESS")
 	private String adress;	
 	
-	@Digits(integer=7,fraction=0)
 	@Column(name="CLIENT_DNI")
-	private int dni ;
+	private String dni ;
 	
 	@Column(name="CLIENT_PHONE")
-	private int phone;
+	private String phone;
 	
 	@Column(name="CLIENT_CEL")
-	private int cel;
+	private String cel;
 	
 	@Column(name="CLIENT_EMAIL")
-	private String email;	
-
-	public Client() {
-		this.id = -1;
-		this.name = "";
+	private String email;
+	
+	public Client(){
+		
 	}
 
-	public Client(int id, String name, String surName, String adress, int dni, int phone, int cel, String email ) {		
-		this.id = id;
+
+	public Client(String name, String surName, String adress, String dni, String phone, String cel, String email ) {		
 		this.name = name;
 		this.surName = surName;
 		this.adress = adress;
+		this.email = email;
 		this.dni = dni;
 		this.phone = phone;
 		this.cel = cel;
-		this.email = email;		
+				
 	}
 
 	public int getId() {
@@ -90,27 +86,27 @@ public class Client {
 		this.adress = adres;
 	}
 
-	public int getPhone() {
+	public String getPhone() {
 		return phone;
 	}
 
-	public void setPhone(int phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 
-	public int getDni() {
+	public String getDni() {
 		return dni;
 	}
 
-	public void setDni(int dni) {
+	public void setDni(String dni) {
 		this.dni = dni;
 	}
 
-	public int getCel() {
+	public String getCel() {
 		return cel;
 	}
 
-	public void setCel(int cel) {
+	public void setCel(String cel) {
 		this.cel = cel;
 	}
 

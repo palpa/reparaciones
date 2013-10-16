@@ -10,16 +10,15 @@
 				<div class="panel-body">
 					<div class="table-responsive">
 						<table class="table table-hover">
-							<colgroup>
-								<col class="col-lg-1">
-								<col class="col-lg-3">
-								<col class="col-lg-1">
-								<col class="col-lg-1">
-							</colgroup>
 							<thead>
 								<tr>
-									<th>#</th>
+									<th>Numero</th>
 									<th>Nombre</th>
+									<th>Apellido</th>
+									<th>Direccion</th>
+									<th>Telefono</th>
+									<th class="text-center">Editar</th>
+									<th class="text-center">Eliminar</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -27,9 +26,11 @@
 								<tr>
 									<td>{{id}}</td>
 									<td><a href="#">{{name}}</a></td>
-									<td><a href="#"><span class="glyphicon glyphicon-edit"></span></a></td>
-									<td><a href="#"><span
-											class="glyphicon glyphicon-remove"></span></a></td>
+									<td><a href="#">{{surName}}</a></td>
+									<td><a href="#">{{adress}}</a></td>
+									<td><a href="#">{{phone}}</a></td>
+									<td class="text-center"><a class="glyphicon glyphicon-pencil" href="#"></a></td>
+									<td class="text-center"><a class="glyphicon glyphicon-trash" href="#"></a></td>
 								</tr>
 								{{/clients}}
 							</tbody>
@@ -38,15 +39,12 @@
 					<!-- /.table-responsive -->
 				</div>
 			</div>
-			<!--panel-->
+			<!--panel-->			
 			<ul class="pagination">
-				<li><a href="#">&laquo;</a></li>
-				<li><a href="#">1</a></li>
-				<li><a href="#">2</a></li>
-				<li><a href="#">3</a></li>
-				<li><a href="#">4</a></li>
-				<li><a href="#">5</a></li>
-				<li><a href="#">&raquo;</a></li>
+				{{#pages}}
+				<li><a href="#">{{numPage}};</a></li>
+				{{/pages}}
+	
 			</ul>
 		</div>
 	</div>

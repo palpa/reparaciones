@@ -1,11 +1,15 @@
 package com.amp.repository;
 
+import java.util.List;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
-import com.amp.domain.Client;
+import com.apm.entities.Client;
 
-public interface ClientRepository extends JpaRepository<Client, Integer> {
+
+public interface ClientRepository extends PagingAndSortingRepository<Client, Integer> {
+
+	public List<Client> findAll();
 
 }
 

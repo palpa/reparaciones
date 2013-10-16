@@ -14,10 +14,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import static org.junit.Assert.assertEquals;
 
-import com.amp.domain.Client;
 import com.amp.repository.ClientRepository;
 import com.amp.service.ClientService;
 import com.amp.service.ClientServiceImpl;
+import com.apm.entities.Client;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration
