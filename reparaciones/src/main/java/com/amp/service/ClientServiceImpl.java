@@ -14,6 +14,18 @@ import com.amp.domain.ClientDTO;
 import com.amp.repository.ClientRepository;
 import com.apm.entities.Client;
 
+/**
+ * @author juan.eduardo.mendoza
+ *
+ */
+/**
+ * @author juan.eduardo.mendoza
+ *
+ */
+/**
+ * @author juan.eduardo.mendoza
+ *
+ */
 @Service("clientService")
 public class ClientServiceImpl implements ClientService {
 
@@ -31,7 +43,7 @@ public class ClientServiceImpl implements ClientService {
 	public DomainClientPage getPageClients(int numPage){
 		
 		//TODO: Hay que tomar el numero de paginas de un archivo de propiedades
-		PageRequest myPageRequest = new PageRequest(numPage,10);				
+		PageRequest myPageRequest = new PageRequest(numPage - 1,10);				
 		DomainClientPage myDomainPage = buildDomainClientPage(myPageRequest);		
 		return myDomainPage;
 	}
@@ -86,5 +98,12 @@ public class ClientServiceImpl implements ClientService {
 				repositoryClient.getCel(), repositoryClient.getEmail());
 
 		return myClientDTO;
+	}
+	
+	
+	public void delete(ClientDTO aClient) {
+
+		clientRepostitory.delete(this.convertClientDTOToRepository(aClient));
+
 	}
 }

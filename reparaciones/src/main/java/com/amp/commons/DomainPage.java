@@ -1,5 +1,6 @@
 package com.amp.commons;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javassist.bytecode.Descriptor.Iterator;
@@ -27,7 +28,8 @@ public abstract class DomainPage<T> {
 	private List<PageNumber> pageNumbers;
 
 	
-	public DomainPage(){		
+	public DomainPage(){
+		pageNumbers = new ArrayList<DomainPage<T>.PageNumber>();
 	}
 
 	public List<T> getPageElements() {
@@ -36,14 +38,14 @@ public abstract class DomainPage<T> {
 
 	public void setPageElements(List<T> pageElements) {
 		this.pageElements = pageElements;
-		java.util.Iterator<T> it = pageElements.iterator();
+		int numberOfelements = pageElements.size();
 		
-		int pageNumber=1;
-		while(it.hasNext()){			
-			PageNumber aPageNumber = new PageNumber(pageNumber);
-			this.pageNumbers.add(aPageNumber);
-			pageNumber++;
-		}		
+//		int pageNumber=1;
+//		while(pageNumber <= numberOfelements){			
+//			PageNumber aPageNumber = new PageNumber(pageNumber);
+//			this.pageNumbers.add(aPageNumber);
+//			pageNumber++;
+//		}		
 	}
 
 	public int getNumberOfPages() {
@@ -52,6 +54,13 @@ public abstract class DomainPage<T> {
 
 	public void setNumberOfPages(int numberOfPages) {
 		this.numberOfPages = numberOfPages;
+		
+		int pages=1;
+		while(pages <= numberOfPages){			
+			PageNumber aPageNumber = new PageNumber(pages);
+			this.pageNumbers.add(aPageNumber);
+			pages++;
+		}		
 	}
 
 	public int getPageNumber() {

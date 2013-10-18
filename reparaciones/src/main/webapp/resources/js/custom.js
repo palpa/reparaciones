@@ -30,6 +30,7 @@ $('#addCliente').submit(function() {
 		validation = false;
 	}
 	
+	//TODO: hay que validar la longitud del dni y que no se puedan meter letras, hacerlo tambien desde el bckend.
 	$('#D_DNI').removeClass('has-error');
 	if(($('#I_DNI').val()) == "") {
 		$('#D_DNI').addClass('has-error');
