@@ -18,57 +18,51 @@ import com.apm.entities.Client;
  * @author juan.eduardo.mendoza
  *
  */
-/**
- * @author juan.eduardo.mendoza
- *
- */
-/**
- * @author juan.eduardo.mendoza
- *
- */
 @Service("clientService")
 public class ClientServiceImpl implements ClientService {
 
 	@Autowired
 	private ClientRepository clientRepostitory;
-
+	
+	
 	public void addClient(ClientDTO client) {
 		clientRepostitory.save(convertClientDTOToRepository(client));
 	}	
 
+	public void delete(ClientDTO aClient) {
+
+		clientRepostitory.delete(this.convertClientDTOToRepository(aClient));
+
+	}
+	
 	public ClientDTO getClientById(int id) {
 		return convertClientRepositoryToDto(clientRepostitory.findOne(id));
+	}
+
+	public DomainClientPage getPageClientByNameOrSurname(int pageNumber, String nameOrSurname) {
+		
+		//TODO: Hay que teomar el numero de elementos de paginas de un archivo de propiedades
+		PageRequest myPageRequest = new PageRequest(pageNumber - 1,5);
+		DomainClientPage myDomainPage = getDomainClientPageByNameOrSurName(nameOrSurname, myPageRequest);
+		
+		return myDomainPage;
+		
 	}
 	
 	public DomainClientPage getPageClients(int numPage){
 		
 		//TODO: Hay que tomar el numero de paginas de un archivo de propiedades
-		PageRequest myPageRequest = new PageRequest(numPage - 1,10);				
-		DomainClientPage myDomainPage = buildDomainClientPage(myPageRequest);		
+		PageRequest myPageRequest = new PageRequest(numPage - 1,5);				
+		DomainClientPage myDomainPage = getDomainClientPage(myPageRequest);		
 		return myDomainPage;
 	}
 
-	private DomainClientPage buildDomainClientPage(PageRequest pageRequest) {		
-		
-		Page<Client> pageRepository = clientRepostitory.findAll(pageRequest);	
-		
+	private DomainClientPage buildDomainClientPage(PageRequest pageRequest,Page<Client> pageRepository) {
 		DomainClientPage myDomainPage = new DomainClientPage();
-		myDomainPage.setPageNumber(pageRequest.getPageNumber());		
+		myDomainPage.setPageNumber(pageRequest.getPageNumber());
 		myDomainPage.setPageElements(convertPageRepositoryToDTO(pageRepository));
 		myDomainPage.setNumberOfPages(pageRepository.getTotalPages());
-		
 		return myDomainPage;
-		
-	}
-
-	private List<ClientDTO> convertPageRepositoryToDTO(Page<Client> page) {	
-		
-		List<ClientDTO> listClients = new ArrayList<ClientDTO>();
-		Iterator<Client> itClient = page.getContent().iterator();		
-		while(itClient.hasNext()){			
-			listClients.add(convertClientRepositoryToDto(itClient.next()));				
-		}		
-		return listClients;
 	}
 
 	/**
@@ -83,7 +77,7 @@ public class ClientServiceImpl implements ClientService {
 				client.getCel(), client.getEmail());
 		return myClient;
 	}
-	
+
 	/**
 	 * Retorna un DTO a partir de un cliente de repositorio
 	 * 
@@ -99,11 +93,30 @@ public class ClientServiceImpl implements ClientService {
 
 		return myClientDTO;
 	}
-	
-	
-	public void delete(ClientDTO aClient) {
 
-		clientRepostitory.delete(this.convertClientDTOToRepository(aClient));
-
+	private List<ClientDTO> convertPageRepositoryToDTO(Page<Client> page) {	
+		
+		List<ClientDTO> listClients = new ArrayList<ClientDTO>();
+		Iterator<Client> itClient = page.getContent().iterator();		
+		while(itClient.hasNext()){			
+			listClients.add(convertClientRepositoryToDto(itClient.next()));				
+		}		
+		return listClients;
 	}
+	
+	private DomainClientPage getDomainClientPage(PageRequest pageRequest) {		
+		
+		Page<Client> pageRepository = clientRepostitory.findAll(pageRequest);			
+		DomainClientPage myDomainPage = buildDomainClientPage(pageRequest,pageRepository);
+		
+		return myDomainPage;		
+	}
+	
+	
+	private DomainClientPage getDomainClientPageByNameOrSurName(String nameOrSurname, PageRequest myPageRequest) {
+		
+		Page<Client> pageRepository = clientRepostitory.findByNameOrSurName(myPageRequest, nameOrSurname);			
+		DomainClientPage myDomainPage = buildDomainClientPage(myPageRequest,pageRepository);		
+		return myDomainPage;
+	}	
 }

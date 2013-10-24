@@ -1,16 +1,13 @@
 package com.amp.controlers;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.amp.commons.DomainClientPage;
-import com.amp.domain.ClientDTO;
 import com.amp.service.ClientService;
 
 
@@ -21,22 +18,21 @@ public class ChangeClientController {
 	ClientService clientServices;
 	
 	@RequestMapping("clients/changeClients/{page}")
-	public String loadClients(Model model, @PathVariable int page){
+	public String loadClients(Model model, @PathVariable int page, @RequestParam(value="search", required=false) String search){
 		
-		List<Integer> lista = new ArrayList<Integer>(); 
-		lista.add(1);
-		lista.add(2);
-		lista.add(3);
+		DomainClientPage myPageClient;
+		if((search == null) || search.isEmpty()){			
+			myPageClient = clientServices.getPageClients(page);
+			model.addAttribute("search", "");
+		}
+		else{
+			myPageClient = clientServices.getPageClientByNameOrSurname(page,search);
+			model.addAttribute("search", search);
+		}		
 		
-		List<ClientDTO> myClients = clientServices.getPageClients(page).getPageElements();
-		
-		DomainClientPage myPage = clientServices.getPageClients(page);		
-		//List<ClientDTO> myClients = myPage.getPageElements();
-		
-		model.addAttribute("clients", myClients);
-		model.addAttribute("pages", myPage.getPageNumbers());
-		
+		model.addAttribute("clients", myPageClient.getPageElements());
+		model.addAttribute("pages", myPageClient.getPageNumbers());
 		return "clients";
 	}
-
+	
 }

@@ -1,7 +1,7 @@
 package com.amp.controlers;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,6 @@ import com.amp.domain.ClientDTO;
 import com.amp.domain.User;
 import com.amp.service.ClientService;
 import com.amp.service.UserService;
-import com.apm.entities.Client;
 
 @Controller
 public class ClientController {
@@ -34,10 +33,14 @@ public class ClientController {
 		this.clientService = clientService;
 		this.userService = userService;
 	}
+	
+	
+
 
 	@RequestMapping("clients/")
-	public String loadClientsPage(Model m, HttpServletRequest request) {
+	public String loadClientsPage(Model m) {
 
+		System.out.println("Ingreso al controlador de carga de clientes");
 		// Creo el usuario admin/admin
 		User user = new User();
 		user.setName("admin");

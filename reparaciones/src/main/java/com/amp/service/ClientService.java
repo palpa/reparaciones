@@ -11,5 +11,7 @@ public interface ClientService {
 	
 	public DomainClientPage getPageClients(int numPage);
 	
+	public DomainClientPage getPageClientByNameOrSurname(int numPage, String nameOrSurname);
+	
 	public void delete(ClientDTO aClient);
 }

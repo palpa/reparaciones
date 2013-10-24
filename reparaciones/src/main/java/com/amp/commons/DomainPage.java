@@ -12,9 +12,19 @@ public abstract class DomainPage<T> {
 	private class PageNumber{
 		
 		private int numPage;
+		private boolean pageActive;
 		
+		public boolean isPageActive() {
+			return pageActive;
+		}
+
+		public void setPageActive(boolean pageActive) {
+			this.pageActive = pageActive;
+		}
+
 		public PageNumber(int num){
 			 this.numPage = num;
+			 this.pageActive = false;
 		}
 
 		public int getNumPage() {
@@ -23,7 +33,6 @@ public abstract class DomainPage<T> {
 	}
 	
 	private List<T> pageElements; 	
-	private int numberOfPages;
 	private int pageNumber;
 	private List<PageNumber> pageNumbers;
 
@@ -48,16 +57,15 @@ public abstract class DomainPage<T> {
 //		}		
 	}
 
-	public int getNumberOfPages() {
-		return numberOfPages;
-	}
-
 	public void setNumberOfPages(int numberOfPages) {
-		this.numberOfPages = numberOfPages;
 		
 		int pages=1;
 		while(pages <= numberOfPages){			
 			PageNumber aPageNumber = new PageNumber(pages);
+			if(pages == this.pageNumber + 1 ){
+				aPageNumber.setPageActive(true);
+			}
+			
 			this.pageNumbers.add(aPageNumber);
 			pages++;
 		}		

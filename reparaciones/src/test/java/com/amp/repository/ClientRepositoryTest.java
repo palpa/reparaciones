@@ -1,6 +1,7 @@
 package com.amp.repository;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.util.List;
 
@@ -73,7 +74,8 @@ public class ClientRepositoryTest {
 		assertEquals(clients.size(), 2);
 	}
 	
-	@Test public void testFindAllPageable(){
+	@Test 
+	public void testFindAllPageable(){
 		
 		//Guardamos los clientes
 		clientRepository.save(client1);
@@ -86,6 +88,23 @@ public class ClientRepositoryTest {
 		
 		assertEquals(page.getNumberOfElements(), 2);
 		
+	}
+	
+	@Test
+	public void testFindByNameOrSurname(){
+		
+		clientRepository.save(client1);
+		
+		PageRequest pageable = new PageRequest(0, 2);
+		Page<Client> myPage1 = clientRepository.findByNameOrSurName(pageable, client1.getName());
+		
+		Page<Client> myPage2 = clientRepository.findByNameOrSurName(pageable, client1.getSurName());
+		
+		assertNotNull(myPage1);
+		assertEquals(client1.getName(), myPage1.getContent().get(0).getName());
+		
+		assertNotNull(myPage2);
+		assertEquals(client1.getName(), myPage2.getContent().get(0).getName());
 	}
 
 }
