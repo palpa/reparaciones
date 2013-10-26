@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.amp.domain.User;
-import com.apm.entities.Users;
+import com.amp.entities.Users;
 import com.amp.repository.UserRepository;
 
 @Service("userService")

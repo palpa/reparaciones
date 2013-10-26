@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.amp.commons.DomainClientPage;
+import com.amp.commons.pages.DomainClientPage;
 import com.amp.domain.ClientDTO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -58,12 +58,12 @@ public class ClientServiceTest {
 //		clientService.addClient(myClient);		
 //		//ClientDTO aClient = clientService.getClientById(1);	
 //		DomainClientPage page = clientService.getPageClients(1);
-//		System.out.println("Tamaño de la pagina: " + page.getPageElements().size());
+//		System.out.println("Tamaï¿½o de la pagina: " + page.getPageElements().size());
 //		
 //		//clientService.delete(aClient);
 //		
 //		
-//		System.out.println("Tamaño de la pagina: " + page.getPageElements().size());
+//		System.out.println("Tamaï¿½o de la pagina: " + page.getPageElements().size());
 //		
 //		assertEquals(page.getNumberOfPages(), 1);	
 						

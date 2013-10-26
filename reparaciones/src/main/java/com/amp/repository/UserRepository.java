@@ -2,7 +2,7 @@ package com.amp.repository;
 
 import java.util.List;
 
-import com.apm.entities.Users;
+import com.amp.entities.Users;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

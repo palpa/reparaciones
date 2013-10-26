@@ -1,4 +1,4 @@
-package com.apm.entities;
+package com.amp.entities;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

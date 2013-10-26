@@ -1,4 +1,4 @@
-package com.amp.commons;
+package com.amp.commons.pages;
 
 import java.util.ArrayList;
 import java.util.List;

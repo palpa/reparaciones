@@ -1,6 +1,6 @@
 package com.amp.service;
 
-import com.amp.commons.DomainClientPage;
+import com.amp.commons.pages.DomainClientPage;
 import com.amp.domain.ClientDTO;
 
 public interface ClientService {

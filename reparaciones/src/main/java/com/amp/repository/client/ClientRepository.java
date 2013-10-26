@@ -1,4 +1,4 @@
-package com.amp.repository;
+package com.amp.repository.client;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
-import com.apm.entities.Client;
+import com.amp.entities.Client;
 
 
 public interface ClientRepository extends PagingAndSortingRepository<Client, Integer> {
@@ -19,7 +19,7 @@ public interface ClientRepository extends PagingAndSortingRepository<Client, Int
 	
 	public Page<Client> findAll(Pageable page);
 	
-	@Query("select c from Client c where c.name = ?1 OR c.surName = ?1")
+	@Query("select c from Client c where lower(c.name) like ('%' || lower(?1) ||'%') OR lower(c.surName) like ('%'|| lower(?1) || '%') ") 
 	public Page<Client> findByNameOrSurName(Pageable page, String name);
 
 }

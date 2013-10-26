@@ -48,7 +48,7 @@
 			</a>
 				<ul class="dropdown-menu">
 					<li><a href="/reparaciones/clients/add">Crear</a></li> 
-					<li><a href="/reparaciones/clients/changeClients/1">Modificar</a></li>
+					<li><a href="/reparaciones/clients/">Modificar</a></li>
 					<li class="divider"></li>
 					<li><a href="#">Otra acción</a></li>
 				</ul></li>

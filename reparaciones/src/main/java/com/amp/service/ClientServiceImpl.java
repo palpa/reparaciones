@@ -9,10 +9,10 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
-import com.amp.commons.DomainClientPage;
+import com.amp.commons.pages.DomainClientPage;
 import com.amp.domain.ClientDTO;
-import com.amp.repository.ClientRepository;
-import com.apm.entities.Client;
+import com.amp.entities.Client;
+import com.amp.repository.client.ClientRepository;
 
 /**
  * @author juan.eduardo.mendoza

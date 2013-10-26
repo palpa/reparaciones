@@ -1,4 +1,4 @@
-package com.apm.entities;
+package com.amp.entities;
 
 import java.util.Date;
 

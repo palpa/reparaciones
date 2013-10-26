@@ -1,4 +1,4 @@
-package com.amp.commons;
+package com.amp.commons.errors;
 
 import java.util.List;
 

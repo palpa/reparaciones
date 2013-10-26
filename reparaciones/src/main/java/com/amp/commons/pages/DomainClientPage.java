@@ -1,4 +1,4 @@
-package com.amp.commons;
+package com.amp.commons.pages;
 
 import com.amp.domain.ClientDTO;
 

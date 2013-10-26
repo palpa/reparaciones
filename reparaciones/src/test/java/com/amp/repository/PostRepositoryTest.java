@@ -11,8 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.amp.entities.Post;
 import com.amp.repository.PostRepository;
-import com.apm.entities.Post;
 
 
 
