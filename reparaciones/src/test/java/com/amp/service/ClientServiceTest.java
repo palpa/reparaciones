@@ -13,6 +13,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.amp.commons.pages.DomainClientPage;
 import com.amp.domain.ClientDTO;
+import com.amp.service.client.ClientService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations="file:src/main/webapp/WEB-INF/spring/app-config.xml")

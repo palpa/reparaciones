@@ -1,4 +1,4 @@
-package com.amp.service;
+package com.amp.service.client;
 
 import com.amp.commons.pages.DomainClientPage;
 import com.amp.domain.ClientDTO;
@@ -14,4 +14,6 @@ public interface ClientService {
 	public DomainClientPage getPageClientByNameOrSurname(int numPage, String nameOrSurname);
 	
 	public void delete(ClientDTO aClient);
+	
+	public void deleteById(int idCliente);
 }

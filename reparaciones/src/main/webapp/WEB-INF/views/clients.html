@@ -44,7 +44,10 @@
 									<td>{{adress}}</td>
 									<td>{{phone}}</td>
 									<td class="text-center"><a class="glyphicon glyphicon-pencil" href="#"></a></td>
-									<td class="text-center"><a class="glyphicon glyphicon-trash" href="#"></a></td>
+									<td class="text-center">
+									<a data-toggle="modal" href="#" onclick="modalElimiarCliente('{{name}}','{{surName}}', {{id}})" class="glyphicon glyphicon-trash"></a>
+									
+									</td>
 								</tr>
 								{{/clients}}
 							</tbody>
@@ -61,5 +64,28 @@
 			</ul>
 		</div>
 	</div>
+	<!--  Modal de eliminacion de usuario-->
+   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Eliminacion de cliente</h4>
+        </div>
+        <div class="modal-body">
+        	<p class="text-center">        	
+        		¿Desea eliminaran los datos del cliente <span id="S_NombreCliente">Juan</span> ?
+        	</p>        	       	
+        </div>
+        <div class="modal-footer">
+        <form name="input" action="/reparaciones/clients/remove/" method="POST">
+			<input id="I_eliminarCliente" type="hidden" name="clientId" value="">			 
+          	<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+          	<button type="submit" class="btn btn-primary">Aceptar</button>
+        </form> 
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
 </body>
 </html>

@@ -4,6 +4,15 @@ $.fn.altaCliente = function() {
 	});	
 };
 
+function modalElimiarCliente(nombre,apellido, idCliente){
+	
+	$('#S_NombreCliente').html(nombre + " " + apellido );
+	$('#myModal').modal();
+	$('#I_eliminarCliente').val(idCliente);
+}
+
+
+
 
 //TODO: Hay que optimizar esto.
 $('#addCliente').submit(function() {

@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.amp.domain.ClientDTO;
-import com.amp.service.ClientService;
+import com.amp.service.client.ClientService;
 
 public class ApiClientController {
 	

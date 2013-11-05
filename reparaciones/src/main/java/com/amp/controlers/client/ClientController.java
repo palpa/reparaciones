@@ -6,6 +6,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -19,8 +20,8 @@ import com.amp.commons.errors.ErrorsManager;
 import com.amp.commons.pages.DomainClientPage;
 import com.amp.domain.ClientDTO;
 import com.amp.domain.User;
-import com.amp.service.ClientService;
 import com.amp.service.UserService;
+import com.amp.service.client.ClientService;
 
 @Controller
 public class ClientController {
@@ -65,6 +66,18 @@ public class ClientController {
 
 		getClientesResult(model, page, search);
 
+		return "clients";
+	}
+	
+	@RequestMapping(value="/clients/remove/", method = RequestMethod.POST)
+	@Transactional
+	public String removeClient(Model model, @RequestParam(value = "clientId") int id){
+		
+		System.out.println("El id del cliente a eliminar es: " + Integer.toString(id));
+		
+		clientService.deleteById(id);
+		
+		getClientesResult(model, 1, "");		
 		return "clients";
 	}
 

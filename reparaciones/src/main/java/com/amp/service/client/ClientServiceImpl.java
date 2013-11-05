@@ -1,4 +1,4 @@
-package com.amp.service;
+package com.amp.service.client;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.amp.commons.pages.DomainClientPage;
 import com.amp.domain.ClientDTO;
@@ -118,5 +119,16 @@ public class ClientServiceImpl implements ClientService {
 		Page<Client> pageRepository = clientRepostitory.findByNameOrSurName(myPageRequest, nameOrSurname);			
 		DomainClientPage myDomainPage = buildDomainClientPage(myPageRequest,pageRepository);		
 		return myDomainPage;
+	}
+
+	/**
+	 * Servicio para eliminar el cliente segun el ID
+	 */
+	public void deleteById(int idCliente) {
+		
+		Client myClient =clientRepostitory.findById(idCliente);
+		
+		System.out.println("El id del cliente es: " + myClient.getName());
+		clientRepostitory.delete(clientRepostitory.findById(idCliente));		
 	}	
 }

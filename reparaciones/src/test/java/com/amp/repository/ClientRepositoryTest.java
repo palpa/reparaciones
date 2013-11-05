@@ -5,6 +5,12 @@ import static org.junit.Assert.assertNotNull;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+
+import junit.framework.Assert;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,14 +18,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.amp.domain.ClientDTO;
 import com.amp.entities.Client;
 import com.amp.repository.client.ClientRepository;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "file:src/main/webapp/WEB-INF/spring/app-config.xml")
+@ContextConfiguration(locations = { "file:src/main/resources/META-INF/spring/context-persistence.xml","file:src/main/resources/META-INF/spring/context-persistence.xml"})
 @Transactional
 public class ClientRepositoryTest {
 	
@@ -33,6 +42,10 @@ public class ClientRepositoryTest {
 	
 	@Autowired
 	ClientRepository clientRepository;
+	
+	@Autowired
+	EntityManagerFactory entityManager;
+	
 	Client myClient;
 
 	private Client client1;
@@ -63,7 +76,6 @@ public class ClientRepositoryTest {
 
 	@Test
 	public void testFindAll() {
-		
 		//Guardamos los clientes
 		clientRepository.save(client1);
 		clientRepository.save(client2);
@@ -91,7 +103,7 @@ public class ClientRepositoryTest {
 	}
 	
 	@Test
-	public void testFindByNameOrSurname(){
+	public void testFindByNameOrSurname(){		
 		
 		clientRepository.save(client1);
 		
@@ -105,6 +117,33 @@ public class ClientRepositoryTest {
 		
 		assertNotNull(myPage2);
 		assertEquals(client1.getName(), myPage2.getContent().get(0).getName());
+	
 	}
+	
 
+	@Test
+	public void testDelete(){
+		
+		//Guardamos el cliente
+		clientRepository.save(client1);
+		List<Client> clientsList = clientRepository.findAll();
+		
+		//Verificamos que se guardo correctamente
+		assertEquals(clientsList.size(),1);
+		
+		client1 = clientsList.get(0);
+		
+		//Eliminamos el cliente
+		clientRepository.delete(client1);
+		
+		//Verificamos que ya no existe		
+		clientsList = clientRepository.findAll();
+		assertEquals(clientsList.size(),0);
+		
+		//Buscamos por id para verificar que tampoco exista
+		Client myClient = clientRepository.findById(client1.getId());	
+		
+		assertEquals(myClient, null);		
+	}
+	
 }
