@@ -6,6 +6,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.amp.entities.Client;
 
@@ -14,11 +15,12 @@ public interface ClientRepository extends PagingAndSortingRepository<Client, Int
 
 	public List<Client> findAll();
 	
-	
+	@Transactional
 	public Client save(Client client);
 	
 	public Client findById(int id);
 	
+	@Transactional
 	public void delete(Client client);
 	
 	public Page<Client> findAll(Pageable page);

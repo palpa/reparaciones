@@ -16,7 +16,7 @@ import com.amp.domain.ClientDTO;
 import com.amp.service.client.ClientService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations="file:src/main/webapp/WEB-INF/spring/app-config.xml")
+@ContextConfiguration(locations = { "file:src/main/resources/META-INF/spring/context-persistence.xml","file:src/main/webapp/WEB-INF/spring/app-config.xml"})
 public class ClientServiceTest {
 	
 	@Autowired
@@ -48,25 +48,25 @@ public class ClientServiceTest {
 	public void getPageClientTest(){
 		
 		clientService.addClient(myClient);
-		DomainClientPage page = clientService.getPageClients(0);
+		DomainClientPage page = clientService.getPageClients(1);
 		
 		assertEquals(page.getPageElements().size(), 1);			
 	}
 	
 	@Test
 	public void removeTest(){
-		 
-//		clientService.addClient(myClient);		
-//		//ClientDTO aClient = clientService.getClientById(1);	
-//		DomainClientPage page = clientService.getPageClients(1);
-//		System.out.println("Tama�o de la pagina: " + page.getPageElements().size());
-//		
-//		//clientService.delete(aClient);
-//		
-//		
-//		System.out.println("Tama�o de la pagina: " + page.getPageElements().size());
-//		
-//		assertEquals(page.getNumberOfPages(), 1);	
+/*		 
+		clientService.addClient(myClient);		
+		//ClientDTO aClient = clientService.getClientById(1);	
+		DomainClientPage page = clientService.getPageClients(1);
+		System.out.println("Tama�o de la pagina: " + page.getPageElements().size());
+		
+		//clientService.delete(aClient);
+		
+		
+		System.out.println("Tama�o de la pagina: " + page.getPageElements().size());
+		
+		assertEquals(page.getNumberOfPages(), 1);*/	
 						
 	}
 
