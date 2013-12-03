@@ -12,6 +12,24 @@ function modalElimiarCliente(nombre,apellido, idCliente){
 }
 
 
+function modalEditarCliente(idclient){	
+	
+	$.ajax({url:"/reparaciones/api/client/"+idclient,dataType: "json",success:function(result){		
+		$('#S_ME_NClient').html(result.name + " " + result.surName);
+		$('#I_ME_Name').val(result.name);
+		$('#I_ME_Surname').val(result.surName);
+		$('#I_ME_Adress').val(result.adress);
+		$('#I_ME_Dni').val(result.dni);
+		$('#I_ME_Phone').val(result.phone);
+		$('#I_ME_Cel').val(result.cel);
+		$('#I_Email').val(result.email);    
+		$('#I_ME_Id').val(result.id);
+	    }});
+	
+	
+	
+	$('#editUserModal').modal();
+}
 
 
 //TODO: Hay que optimizar esto.

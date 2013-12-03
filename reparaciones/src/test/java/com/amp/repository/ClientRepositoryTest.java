@@ -146,4 +146,20 @@ public class ClientRepositoryTest {
 		assertEquals(myClient, null);		
 	}
 	
+	@Test
+	public void testUpdate(){
+		
+		clientRepository.save(client1);
+		Client myClient = clientRepository.findAll().get(0);
+		List<Client> listClient1 = clientRepository.findAll();
+		
+		myClient.setName("nuevoNombre");
+		clientRepository.save(myClient);
+		
+		Client myClient2 = clientRepository.findById(myClient.getId());
+		
+		assertEquals("nuevoNombre", myClient2.getName());
+		
+	}
+	
 }

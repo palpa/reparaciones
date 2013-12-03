@@ -22,7 +22,13 @@ public class ClientDTO {
 	private String email;
 	
 	public ClientDTO(){
-		
+		name = "";
+		surName = "";
+		adress = "";
+		dni = "";
+		phone = "";
+		cel = "";
+		email = "";
 	}
 
 	public ClientDTO(String id, String name, String surName, String adress, String dni,

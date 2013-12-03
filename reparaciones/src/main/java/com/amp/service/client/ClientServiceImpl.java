@@ -126,9 +126,26 @@ public class ClientServiceImpl implements ClientService {
 	 */
 	public void deleteById(int idCliente) {
 		
-		Client myClient =clientRepostitory.findById(idCliente);
-		
-		System.out.println("El id del cliente es: " + myClient.getName());
 		clientRepostitory.delete(clientRepostitory.findById(idCliente));		
+	}
+
+	public void updateCliente(ClientDTO aClient) {
+		
+		Client clientRepositori = clientRepostitory.findById(Integer.parseInt(aClient.getId()));
+		
+		clientRepostitory.save(updateClientByDomain(aClient, clientRepositori));	
+		
+	}
+
+	private Client updateClientByDomain(ClientDTO aClient, Client clientRepositori) {
+		clientRepositori.setName(aClient.getName());
+		clientRepositori.setSurName(aClient.getSurName());
+		clientRepositori.setAdress(aClient.getAdress());
+		clientRepositori.setDni(aClient.getDni());
+		clientRepositori.setCel(aClient.getCel());
+		clientRepositori.setEmail(aClient.getEmail());
+		clientRepositori.setPhone(aClient.getPhone());
+		
+		return clientRepositori;
 	}	
 }

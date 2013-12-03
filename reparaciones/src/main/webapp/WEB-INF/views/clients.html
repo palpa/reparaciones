@@ -43,7 +43,7 @@
 									<td>{{surName}}</td>
 									<td>{{adress}}</td>
 									<td>{{phone}}</td>
-									<td class="text-center"><a class="glyphicon glyphicon-pencil" href="#"></a></td>
+									<td class="text-center"><a class="glyphicon glyphicon-pencil" href="#" onclick="modalEditarCliente({{id}})"></a></td>
 									<td class="text-center">
 									<a data-toggle="modal" href="#" onclick="modalElimiarCliente('{{name}}','{{surName}}', {{id}})" class="glyphicon glyphicon-trash"></a>
 									
@@ -87,5 +87,78 @@
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
+  
+  	<!--  Modal de edicion de usuario-->
+   <div class="modal fade" id="editUserModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width:70%">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Modificacion de cliente <span id="S_ME_NClient"></span></h4>
+        </div>
+        <div class="modal-body"> <!-- Cuerpo del modal -->
+        	<form id="changeClient" role="form" action="/reparaciones/clients/update/" method="post">
+        		<div class="row">
+        			<div class="col-md-4">
+						<div id="D_Nombre" class="form-group">
+								<label for="changeClient">Nombre</label>
+								<input id="I_ME_Name" type="text" class="form-control"name="name">
+								<input id="I_ME_Id" type="hidden" class="form-control"name="id">
+						</div>
+					</div>	
+					<div class="col-md-4">
+						<div id="D_Apellido" class="form-group">
+								<label for="changeClient" class="padding-top10">Apellido</label>
+								<input id="I_ME_Surname" type="text" class="form-control"name="surName" >
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div id="D_Direccion" class="form-group">
+								<label for="changeClient" class="padding-top10">Dirección</label>
+								<input id="I_ME_Adress" type="text" class="form-control"name="adress">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<div id="D_DNI" class="form-group">
+								<label for="changeClient" class="padding-top10">DNI</label>
+								<input id="I_ME_Dni" type="text" class="form-control" name="dni">
+						</div>
+					</div>
+					<div class="col-md-4">
+					<div id="D_TelFijo" class="form-group">
+						<label for="changeClient" class="padding-top10">Teléfono</label>
+						<input id="I_ME_Phone" type="text" class="form-control"name="phone">
+					</div>
+					</div>
+					<div class="col-md-4">
+						<div id="D_Celular" class="form-group">
+							<label for="changeClient" class="padding-top10">Celular</label>
+							<input id="I_ME_Cel" type="text" class="form-control"name="cel">
+						</div>
+					</div>
+				 </div>								
+				<div class="row">
+					<div class="col-md-6">
+						<div id="D_Email" class="form-group">
+							<label for="changeClient" class="padding-top10">Email</label>
+							<input id="I_Email" type="text" class="form-control" name="email">
+						</div>
+					</div>			
+				</div>	
+				
+				 <div class="modal-footer">
+       				 <div class="row text-center">						
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        				<button type="submit" class="btn btn-primary">Aceptar</button>
+        			 </div>  
+     			 </div>				     
+			</form>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+  
 </body>
 </html>

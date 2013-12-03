@@ -14,13 +14,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.amp.commons.errors.ErrorsManager;
+import com.amp.commons.helperscontrolers.ClientControlerHelper;
 import com.amp.commons.pages.DomainClientPage;
 import com.amp.domain.ClientDTO;
-import com.amp.domain.User;
-import com.amp.service.UserService;
 import com.amp.service.client.ClientService;
 
 @Controller
@@ -30,20 +28,23 @@ public class ClientController {
 
 	@Autowired
 	ClientService clientService;
+	ClientControlerHelper clientHelper = new ClientControlerHelper();
 
 	/**
-	 * Controlador encargado de agregar de agregar un cliente
+	 * Controlador encargado de agregar un cliente
 	 */
 	@RequestMapping(value = "clients/add", method = RequestMethod.POST)
 	public String addClientForm(@Valid @ModelAttribute ClientDTO client,
-			BindingResult result, Model m) {
+			BindingResult result, Model model) {
 
 		ErrorsManager errorManager = new ErrorsManager(result);
-		m.addAttribute("error", errorManager.getErrorMessage());
+		model.addAttribute("error", errorManager.getErrorMessage());
 
 		if (!errorManager.existError()) {
 			clientService.addClient(client);
 		}
+		
+		this.clientHelper.getModelChangeAddClient(model, 0, clientService);
 		return "addClient";
 	}
 
@@ -52,9 +53,35 @@ public class ClientController {
 	 * crear un cliente
 	 */
 	@RequestMapping(value = "clients/add", method = RequestMethod.GET)
-	public String addClientPage(Model m) {
-		m.addAttribute("error", "");
+	public String addClientPage(Model model, @RequestParam(value = "search", required = false) String idClient) {
+		
+		//this.getAddClientPage(model, idClient);
+		
+		/*ClientDTO myClient = new ClientDTO();
+		myClient.setName("Cliente de prueba");
+		myClient.setSurName("Apellido de prueba");
+		myClient.setAdress("Direccion de prueba");
+		myClient.setPhone("telefono de prueba");
+		myClient.setCel("celular de prueba");
+		myClient.setDni("Dni de prueba");
+		myClient.setEmail("Email de prueba");
+		
+		model.addAttribute("client", myClient);
+		
+		model.addAttribute("error", "");*/
+		this.clientHelper.getModelChangeAddClient(model, 0, clientService);
 		return "addClient";
+	}
+
+	private void getAddClientPage(Model model, String idClient) {
+		
+		if(idClient.isEmpty() || idClient == null){
+			//model.addAllAttributes(arg0)
+		}
+		else{
+			
+		}
+		
 	}
 
 	/**
@@ -85,9 +112,20 @@ public class ClientController {
 	 * Controlador que reorla la pagina inicial del cliente
 	 */
 	@RequestMapping("clients/")
-	public String loadClientsPage(Model model) {
-
+	public String loadClientsPage(Model model) {		
+		
 		getClientesResult(model, 1, "");
+
+		return "clients";
+	}
+	
+	@RequestMapping("clients/update")
+	public String updateClient(@Valid @ModelAttribute ClientDTO client,
+			BindingResult result, Model model) {		
+		
+		clientService.updateCliente(client);
+		
+		getClientesResult(model, 1, "");		
 
 		return "clients";
 	}
